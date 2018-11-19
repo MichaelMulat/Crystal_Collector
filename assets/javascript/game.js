@@ -12,11 +12,13 @@ $(function () {
     function InitializeGame() {
         computerScore = Math.floor((Math.random() * 111) + 19)
         $("#random-score").text(computerScore);
-
+        
+        crystalValuses = [];
         for (i = 0; i < 4; i++){
             crystalValuses.push(Math.floor((Math.random() * 11) + 1))
         };
-        
+        console.log(crystalValuses);
+
         $(".diamond").val(crystalValuses[0]);
         $(".club").val(crystalValuses[1]);
         $(".heart").val(crystalValuses[2]);
@@ -38,11 +40,13 @@ $(function () {
         if(playerScore === computerScore) {
             wins++;
             $(".win-num").text(wins);
+            
             InitializeGame();
         } else if (playerScore > computerScore){
 
             losses++;
             $(".loss-num").text(losses)
+            
             InitializeGame();
         }
 
